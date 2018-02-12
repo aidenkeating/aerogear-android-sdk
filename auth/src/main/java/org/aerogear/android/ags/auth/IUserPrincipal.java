@@ -43,7 +43,4 @@ public interface IUserPrincipal extends Principal {
      * @return the credentials that authenticate this users
      */
     ICredential getCredentials();
-
-    // TODO: Don't think this will be needed
-    String getEmail();
 }

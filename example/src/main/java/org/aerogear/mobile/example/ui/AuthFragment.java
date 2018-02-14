@@ -1,14 +1,11 @@
 package org.aerogear.mobile.example.ui;
 
-import android.net.Uri;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.aerogear.mobile.auth.AuthService;
 import org.aerogear.mobile.auth.Callback;
-import org.aerogear.mobile.auth.authenticator.AuthenticateOptions;
 import org.aerogear.mobile.auth.authenticator.OIDCAuthenticateOptions;
 import org.aerogear.mobile.auth.configuration.AuthServiceConfiguration;
 import org.aerogear.mobile.auth.user.UserPrincipal;
@@ -47,7 +44,7 @@ public class AuthFragment extends BaseFragment {
         Log.i(TAG, "Performing login");
         // This will actually happen back in the activity when login is implemented.
 
-        AuthService authService = (AuthService) activity.mobileCore.getInstance(AuthService.class);
+        AuthService authService = activity.mobileCore.getInstance(AuthService.class);
         AuthServiceConfiguration authServiceConfiguration = new AuthServiceConfiguration.AuthConfigurationBuilder()
             .withRedirectUri("org.aerogear.mobile.example:/callback")
             .allowSelfSignedCertificate(true)
@@ -80,10 +77,5 @@ public class AuthFragment extends BaseFragment {
                 .replace(R.id.content, new AuthDetailsFragment())
                 .commit();
         }
-
-//        this.activity.getSupportFragmentManager()
-//            .beginTransaction()
-//            .replace(R.id.content, new AuthDetailsFragment())
-//            .commit();
     }
 }

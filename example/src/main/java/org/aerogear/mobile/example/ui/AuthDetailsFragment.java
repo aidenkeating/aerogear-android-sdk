@@ -45,7 +45,7 @@ public class AuthDetailsFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        AuthService authService = (AuthService) activity.mobileCore.getInstance(AuthService.class);
+        AuthService authService = activity.mobileCore.getInstance(AuthService.class);
 
         UserPrincipal userPrincipal = authService.currentUser();
 
@@ -63,6 +63,9 @@ public class AuthDetailsFragment extends BaseFragment {
 
     @OnClick(R.id.keycloak_logout)
     public void onLogout() {
+        AuthService authService = activity.mobileCore.getInstance(AuthService.class);
+        UserPrincipal userPrincipal = authService.currentUser();
+        authService.logout(userPrincipal);
         this.activity.getSupportFragmentManager()
             .beginTransaction()
             .replace(R.id.content, new AuthFragment())

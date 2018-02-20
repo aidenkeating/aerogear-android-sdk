@@ -176,9 +176,6 @@ public final class MobileCore {
      */
     private ServiceConfiguration getServiceConfiguration(String type) {
         ServiceConfiguration serviceConfiguration = this.servicesConfig.get(type);
-        if (serviceConfiguration == null) {
-            throw new ConfigurationNotFoundException(type + " not found on " + this.configFileName);
-        }
         return serviceConfiguration;
     }
 

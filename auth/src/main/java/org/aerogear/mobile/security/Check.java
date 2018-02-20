@@ -5,6 +5,11 @@ import org.aerogear.mobile.security.checks.RootedCheck;
 public enum Check {
     /**
      *  Detect whether the device is rooted.
+<<<<<<< HEAD
+=======
+     *
+     * @return <code>true</code> if the device is rooted.
+>>>>>>> AEROGEAR-2174 Initial interface and class implementation
      */
     IS_ROOTED(new RootedCheck());
 

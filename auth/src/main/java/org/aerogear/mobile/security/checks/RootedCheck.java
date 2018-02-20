@@ -8,9 +8,6 @@ import org.aerogear.mobile.security.SecurityCheck;
 import org.aerogear.mobile.security.SecurityCheckResult;
 import org.aerogear.mobile.security.impl.SecurityCheckResultImpl;
 
-/**
- * A check for whether the device the application is running on is rooted.
- */
 public class RootedCheck implements SecurityCheck {
     private static final String NAME = "detectRooted";
 
@@ -21,7 +18,7 @@ public class RootedCheck implements SecurityCheck {
      * @return <code>true</code> if the device is rooted.
      */
     @Override
-    public SecurityCheckResult test(final Context context) {
+    public SecurityCheckResult test(Context context) {
         RootBeer rootBeer = new RootBeer(context);
         return new SecurityCheckResultImpl(NAME, rootBeer.isRooted());
     }

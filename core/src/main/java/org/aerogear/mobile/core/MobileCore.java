@@ -14,7 +14,6 @@ import org.aerogear.mobile.core.http.OkHttpServiceModule;
 import org.aerogear.mobile.core.logging.Logger;
 import org.aerogear.mobile.core.logging.LoggerAdapter;
 import org.aerogear.mobile.core.metrics.MetricsService;
-import org.aerogear.mobile.core.metrics.MetricsPublisher;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -146,6 +145,10 @@ public final class MobileCore {
 
             if (serviceConfiguration == null) {
                 serviceConfiguration = getServiceConfiguration(serviceModule.type());
+            }
+
+            if(serviceConfiguration == null && serviceModule.requiresConfiguration()) {
+                throw new ConfigurationNotFoundException(serviceModule.type() + " not found on " + this.configFileName);
             }
 
             if(serviceConfiguration == null && serviceModule.requiresConfiguration()) {

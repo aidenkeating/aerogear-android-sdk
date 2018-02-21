@@ -3,11 +3,7 @@ package org.aerogear.mobile.security.impl;
 import android.content.Context;
 
 import org.aerogear.mobile.core.metrics.MetricsService;
-<<<<<<< HEAD
-import org.aerogear.mobile.security.SecurityCheckType;
-=======
 import org.aerogear.mobile.security.Check;
->>>>>>> AEROGEAR-2174 Implememnt tests for initial classes
 import org.aerogear.mobile.security.SecurityCheck;
 import org.aerogear.mobile.security.SecurityCheckExecutor;
 import org.aerogear.mobile.security.SecurityCheckResult;
@@ -17,12 +13,11 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static junit.framework.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
-import static junit.framework.Assert.assertEquals;
 
 public class SecurityCheckExecutorTest {
     @Mock

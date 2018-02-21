@@ -148,10 +148,6 @@ public final class MobileCore {
                 serviceConfiguration = getServiceConfiguration(serviceModule.type(), serviceModule.requiresConfiguration());
             }
 
-            if(serviceConfiguration == null && serviceModule.requiresConfiguration()) {
-                throw new ConfigurationNotFoundException(serviceModule.type() + " not found on " + this.configFileName);
-            }
-
             serviceModule.configure(this, serviceConfiguration);
 
             services.put(serviceClass, serviceModule);

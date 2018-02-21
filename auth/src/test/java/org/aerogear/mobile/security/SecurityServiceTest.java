@@ -27,7 +27,7 @@ public class SecurityServiceTest {
     MetricsService metricsService;
 
     @Mock
-    SecurityCheckType securityCheckType;
+    Check check;
 
     SecurityService securityService;
     SecurityCheck securityCheck;
@@ -38,7 +38,7 @@ public class SecurityServiceTest {
 
         when(mobileCore.getContext()).thenReturn(context);
         securityCheck = new MockSecurityCheck();
-        when(securityCheckType.getSecurityCheck()).thenReturn(securityCheck);
+        when(check.getSecurityCheck()).thenReturn(securityCheck);
 
         securityService = new SecurityService();
         securityService.configure(mobileCore, null);
@@ -48,7 +48,7 @@ public class SecurityServiceTest {
     public void testCheckAndSendMetric() {
         when(metricsService.publish()).thenReturn(null);
 
-        securityService.checkAndSendMetric(securityCheckType, metricsService);
+        securityService.checkAndSendMetric(check, metricsService);
         verify(metricsService, times(1)).publish(any());
     }
 }

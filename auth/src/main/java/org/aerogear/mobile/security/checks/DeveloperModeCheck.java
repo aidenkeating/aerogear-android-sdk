@@ -9,7 +9,7 @@ import org.aerogear.mobile.security.impl.SecurityCheckResultImpl;
 
 
 public class DeveloperModeCheck implements SecurityCheck {
-    private static final String NAME = "detectDeveloperOptionsEnabled";
+    private static final String NAME = "detectDeveloperMode";
 
     /**
      * Check if developer mode has been enabled in the device.
